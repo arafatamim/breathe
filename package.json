@@ -1,0 +1,30 @@
+{
+  "name": "breathe",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "vite:build": "vite build",
+    "vite:dev": "vite",
+    "re:build": "rescript build",
+    "re:dev": "rescript build -w",
+    "re:clean": "rescript clean",
+    "dev": "concurrently --names \"dev:\" \"npm:*:dev\"",
+    "build": "rescript build && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@rescript/react": "^0.10.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rescript-webapi": "^0.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.7",
+    "autoprefixer": "^10.4.0",
+    "concurrently": "^6.5.1",
+    "postcss": "^8.4.5",
+    "rescript": "^9.1.4",
+    "tailwindcss": "^3.0.7",
+    "vite": "^2.7.2"
+  }
+}
