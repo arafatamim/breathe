@@ -42,7 +42,7 @@ let reducer = (state, action) =>
       | Some(id) => Js.Global.clearTimeout(id)
       | _ => ()
       }
-      ({page: Home, timer: initialState.timer}, [])
+      ({page: Home, timer: initialState.timer}, Effect.none)
     }
   | SetTimer(num) => ({...state, timer: num}, decrementTimer(num))
   }
