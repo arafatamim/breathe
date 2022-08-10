@@ -4,6 +4,6 @@ dist
 dist-ssr
 *.local
 
-src/*.bs.js
+*.bs.js
 lib/
 .merlin

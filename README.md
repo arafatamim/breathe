@@ -2,12 +2,14 @@
 
 An app to help you practice sensible breathing exercises.
 
-# Build
+**Built with Observables (RxJS) & Snabbdom from scratch utilizing an Elm-style reducer function written in ReScript**
+
+## Build
 ```
 pnpm run build
 ```
 
-# Watch
+## Watch
 ```
 pnpm run dev
 ```
