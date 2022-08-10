@@ -70,7 +70,6 @@ let app = state => {
 }
 
 store.subscribe(state => {
-  Js.log(mount.contents)
   let component = app(state)
   mount.contents = patch(mount.contents, component)
 }) |> ignore
