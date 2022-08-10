@@ -3,14 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "vite:build": "vite build",
-    "vite:dev": "vite",
+    "parcel:build": "parcel build index.html",
+    "parcel:dev": "parcel serve index.html",
     "re:build": "rescript build",
     "re:dev": "rescript build -w",
     "re:clean": "rescript clean",
     "dev": "concurrently --names \"dev:\" \"npm:*:dev\"",
-    "build": "rescript build && vite build",
-    "serve": "vite preview"
+    "build": "rescript build && parcel build index.html"
   },
   "dependencies": {
     "@ryyppy/rescript-promise": "^2.1.0",
@@ -19,12 +18,12 @@
     "snabbdom": "^3.5.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.8",
     "concurrently": "^6.5.1",
     "gentype": "^4.5.0",
+    "parcel": "^2.7.0",
     "postcss": "^8.4.5",
     "rescript": "^9.1.4",
-    "tailwindcss": "^3.0.7",
-    "vite": "^2.7.7"
+    "tailwindcss": "^3.0.7"
   }
 }

@@ -3,6 +3,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.parcel-cache/
 
 *.bs.js
 lib/

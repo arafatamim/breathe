@@ -7,7 +7,11 @@ let make = (store, state) => {
   fragment([
     h(
       "div.absolute.absolute-middle.top-[70vh].flex-row.justify-center.text-center",
-      empty,
+      {
+        "style": {
+          "top": "70vh"
+        }
+      },
       [
         h("h1.text-2xl", empty, ["Breathe!"->string]),
         h("h1.text-white/50.mb-4", empty, ["by Tamim Arafat"->string]),
@@ -31,6 +35,10 @@ let make = (store, state) => {
         h(
           "button.rounded-full.w-[50px].h-[50px]",
           {
+            "style": {
+              "width": "50px",
+              "height": "50px",
+            },
             "on": {
               "click": () => {
                 store.dispatch(Start)

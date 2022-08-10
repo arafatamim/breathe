@@ -14,11 +14,13 @@ let mount = {
   document->Document.getElementById("app")->Js.Option.getExn->ref
 }
 
+let timeoutId = ref(None)
+
 let decrementTimer = initialTimer => {
   let sub = dispatch => {
-    Js.Global.setTimeout(() => {
-      dispatch(SetTimer(initialTimer - 1))
-    }, 1000)->ignore
+    timeoutId.contents = Js.Global.setTimeout(() => {
+        dispatch(SetTimer(initialTimer - 1))
+      }, 1000)->Some
   }
   if initialTimer == 0 {
     Effect.fromAction(Stop)
@@ -34,8 +36,14 @@ let initialState = {
 
 let reducer = (state, action) =>
   switch action {
-  | Start => ({...state, page: Exercise}, decrementTimer(state.timer))
-  | Stop => ({page: Home, timer: initialState.timer}, [])
+  | Start => ({page: Exercise, timer: initialState.timer}, decrementTimer(state.timer))
+  | Stop => {
+      switch timeoutId.contents {
+      | Some(id) => Js.Global.clearTimeout(id)
+      | _ => ()
+      }
+      ({page: Home, timer: initialState.timer}, [])
+    }
   | SetTimer(num) => ({...state, timer: num}, decrementTimer(num))
   }
 
@@ -62,6 +70,7 @@ let app = state => {
 }
 
 store.subscribe(state => {
+  Js.log(mount.contents)
   let component = app(state)
   mount.contents = patch(mount.contents, component)
 }) |> ignore

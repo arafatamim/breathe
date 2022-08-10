@@ -25,6 +25,10 @@ let make = (store, state) => {
         h(
           "button.absolute.left-2/4.top-2/4.-translate-x-2/4.-translate-y-2/4.rounded-full.w-[50px].h-[50px]",
           {
+            "style": {
+              "width": "50px",
+              "height": "50px",
+            },
             "attrs": {
               "title": "Stop Exercise",
             },
@@ -38,6 +42,14 @@ let make = (store, state) => {
         ),
       ],
     ),
-    h("h1.absolute.absolute-middle.text-2xl.top-[87vh]", empty, [formatSeconds(state.timer)->string]),
+    h(
+      "h1.absolute.absolute-middle.text-2xl.top-[87vh]",
+      {
+        "style": {
+          "top": "87vh",
+        },
+      },
+      [formatSeconds(state.timer)->string],
+    ),
   ])
 }
